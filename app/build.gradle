@@ -8,6 +8,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "TMDB_API_KEY", "\"dccf2cf6b308d712ca82981a3074a60e\""
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+def getApiKey(){
+    def Properties properties = new Properties()
+    properties.load(new FileInputStream(new File('app/keystore.properties')))
+    return properties['TMDB_API_KEY']
 }
 
 dependencies {

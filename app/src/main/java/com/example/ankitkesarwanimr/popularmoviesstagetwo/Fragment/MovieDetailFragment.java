@@ -1,7 +1,6 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Rect;
@@ -24,6 +23,21 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DecodeFormat;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.GenresListAdapter;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.SimilarMoviesAdapter;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.VideosListAdapter;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Database.MovieContract;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.Constants;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.StateHandler;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.MainActivity;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Genre;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReview;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReviews;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideo;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideos;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MoviesList;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Network.TmdbRestClient;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 import java.util.ArrayList;
@@ -40,14 +54,6 @@ public class MovieDetailFragment extends Fragment
 
     private boolean isFavorite;
     private FloatingActionButton favoriteButton;
-
-    /*
-    List of views whose references are required to be updated
-    once the network fetches data about them. View references are
-    obtained beforehand for a performance gain.
-    Movie duration, horizontally scrollable genres genresRecyclerView,
-    tag line text are updated after a successful api query.
-     */
     private TextView duration;
     private TextView rating;
 
@@ -120,11 +126,6 @@ public class MovieDetailFragment extends Fragment
                 intent.setAction(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String url;
-                /*
-                If the movie has no videos, share it's
-                tmdb web page. Else share it's first trailer
-                video.
-                 */
                 if (movie.getMovieVideos() == null ||
                         movie.getMovieVideos().size() == 0) {
                     url = TMDB_MOVIE_URL + movie.getId();
@@ -144,9 +145,6 @@ public class MovieDetailFragment extends Fragment
                 new FavoriteTogglerTask().execute();
             }
         });
-        /*
-        Determine if this movie is added to favorites.
-         */
         new FavoriteCheckerTask().execute();
     }
 
@@ -232,7 +230,7 @@ public class MovieDetailFragment extends Fragment
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MoviesListActivity.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 intent.putExtra(Constants.INTENT_EXTRA_TYPE, Constants.MOVIES_SIMILAR);
                 intent.putExtra(Constants.BUNDLE_ID, movie.getId());
                 intent.putExtra(Constants.BUNDLE_TITLE, movie.getTitle());
@@ -256,13 +254,7 @@ public class MovieDetailFragment extends Fragment
         reviewReadAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                Use bundle as opposed to a non default constructor
-                to pass data to a fragment. This is because if at
-                some point Android decides to recreate the fragment,
-                it will call it's default no argument constructor.
-                Read more: http://stackoverflow.com/questions/9245408/best-practice-for-instantiating-a-new-android-fragment/9245510#9245510
-                 */
+
                 Bundle bundle = new Bundle();
                 bundle.putInt(Constants.BUNDLE_ID, movie.getId());
                 bundle.putString(Constants.BUNDLE_TITLE, movie.getTitle());
@@ -284,11 +276,7 @@ public class MovieDetailFragment extends Fragment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        /*
-        On transitioning from this fragment to MovieReviewsFragment
-        and back, the fragment is recreated and onCreate is not
-        called. Hence load genres, trailers and reviews here.
-         */
+
         loadMovieDetails();
         loadMovieVideos();
         loadSimilarMovies();
@@ -297,11 +285,6 @@ public class MovieDetailFragment extends Fragment
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        /*
-        Save the current state of the fragment by saving
-        the Movie object to reduce the number of network
-        calls.
-         */
         outState.putParcelable(Constants.BUNDLE_MOVIE, movie);
     }
 
@@ -323,15 +306,9 @@ public class MovieDetailFragment extends Fragment
                     movie.setGenres(response.body().getGenres());
                     movie.setDuration(response.body().getDuration());
                     movie.setTagLine(response.body().getTagLine());
-                    /*
-                    If movie is loaded from Favorites, it's overview
-                    text is an empty string. Hence reset overview text.
-                     */
+
                     movie.setOverview(response.body().getOverview());
-                    /*
-                    Reset both vote count and vote average as they
-                    may be outdated.
-                     */
+
                     movie.setVoteCount(response.body().getVoteCount());
                     movie.setVoteAverage(response.body().getVoteAverage());
                 }
@@ -344,16 +321,6 @@ public class MovieDetailFragment extends Fragment
                 update();
             }
 
-            /**
-             * Seemingly redundant to have this method which just
-             * passes on call to {@link MovieDetailFragment#updateUI}.
-             * However can allow for greater customization depending
-             * on whether it is called from {@link Callback#onResponse}
-             * or {@link Callback#onFailure}. Future scope to possibly
-             * modify UI. Check {@link MovieDetailFragment#loadMovieVideos()}
-             * and {@link MovieDetailFragment#loadMovieReviews()} for
-             * use case of this style.
-             */
             private void update() {
                 updateUI();
             }
@@ -374,7 +341,7 @@ public class MovieDetailFragment extends Fragment
 
     @Override
     public void onGenreClick(Genre genre) {
-        Intent intent = new Intent(getActivity(), MoviesListActivity.class);
+        Intent intent = new Intent(getActivity(), MainActivity.class);
         intent.putExtra(Constants.INTENT_EXTRA_TYPE, Constants.MOVIES_GENRE);
         intent.putExtra(Constants.BUNDLE_GENRE_ID, genre.getId());
         intent.putExtra(Constants.BUNDLE_GENRE, genre.getName());
@@ -396,15 +363,7 @@ public class MovieDetailFragment extends Fragment
     }
 
     private void loadMovieVideos() {
-        if (movie.getMovieVideos() != null &&
-                movie.getMovieVideos().size() > 0) {
-            /*
-            Movies are already loaded. In this case, just
-            update the view. This happens when the activity
-            is recreated on configuration change in which
-            case the movie videos are loaded from the
-            savedInstanceState.
-             */
+        if (movie.getMovieVideos() != null && movie.getMovieVideos().size() > 0) {
             setupMovieVideos();
             return;
         }
@@ -451,31 +410,10 @@ public class MovieDetailFragment extends Fragment
 
     @Override
     public void onVideoClick(MovieVideo movieVideo) {
-        /*
-        Yet to check url to load for sites other than
-        YouTube given video key. Currently supports
-        only YouTube videos.
-         */
+
         if (!movieVideo.getSite().equalsIgnoreCase(Constants.YOUTUBE)) {
             return;
         }
-
-        /*
-        Play video using YouTube app if it exists,
-        else default to browser.
-        Taken from: http://stackoverflow.com/a/12439378/3946664
-         */
-        /*
-        try {
-            intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(Constants.URI_YOUTUBE_APP + movieVideo.getKey()));
-        } catch (android.content.ActivityNotFoundException e) {
-            intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(Constants.URI_YOUTUBE_BROWSER + movieVideo.getKey()));
-        }
-        The above code for opening youtube video does not work on emulators.
-        So defaulting to opening using browser url.
-         */
         Intent intent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse(Constants.URI_YOUTUBE_BROWSER + movieVideo.getKey()));
         startActivity(intent);
@@ -600,10 +538,7 @@ public class MovieDetailFragment extends Fragment
     private void setupMovieReviews() {
         reviewAuthor.setText(movie.getMovieReviews().get(0).getAuthor());
         reviewContent.setText(movie.getMovieReviews().get(0).getContent());
-        /*
-        Hide read all reviews option if there
-        are no reviews for the movie.
-         */
+
         if (reviewContent.getText().toString()
                 .compareTo(getString(R.string.no_reviews)) == 0) {
             reviewReadAll.setVisibility(View.INVISIBLE);
@@ -662,10 +597,7 @@ public class MovieDetailFragment extends Fragment
         @Override
         protected Boolean doInBackground(Void... params) {
             boolean isSuccessful;
-            /*
-            If movie is already among favorites, remove it.
-            Else add.
-             */
+
             if (isFavorite) {
                 isSuccessful = getContext().getContentResolver()
                         .delete(

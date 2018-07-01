@@ -1,22 +1,14 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.Constants;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MoviesList;
-import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Network.TmdbRestClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TopRatedMoviesFragment extends Fragment {
+public class TopRatedMoviesFragment extends MoviesListFragment {
     public static final String TAG = TopRatedMoviesFragment.class.getName();
 
     public TopRatedMoviesFragment() {}

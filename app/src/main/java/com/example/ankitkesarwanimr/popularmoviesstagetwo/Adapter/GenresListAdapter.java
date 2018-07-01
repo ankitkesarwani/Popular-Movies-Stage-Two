@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment.MovieDetailFragment;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Genre;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 import java.util.ArrayList;
 

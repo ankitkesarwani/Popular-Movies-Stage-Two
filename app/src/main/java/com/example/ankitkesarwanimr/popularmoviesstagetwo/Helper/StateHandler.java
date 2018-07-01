@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReview;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideo;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 public class StateHandler {
     public static String handleMovieDetailState(Context context, int flag) {

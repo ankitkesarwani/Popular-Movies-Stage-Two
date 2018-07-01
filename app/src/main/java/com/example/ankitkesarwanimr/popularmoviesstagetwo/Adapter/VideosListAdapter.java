@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideo;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 import java.util.ArrayList;
 

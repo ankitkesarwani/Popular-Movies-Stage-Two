@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.Constants;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 public class BackdropMovieImageFragment extends Fragment {
     private String filePath;

@@ -1,8 +1,6 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment;
 
-import android.content.Context;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -85,13 +83,6 @@ public class MovieReviewsFragment extends Fragment {
         if (savedInstanceState != null) {
             temp = savedInstanceState.getParcelableArrayList(Constants.BUNDLE_REVIEWS);
         }
-
-        /*
-        On opening many other movie fragments like detail, reviews,
-        similar movies, genre movies etc and then traversing back,
-        it so happens that parcelable returns null for the previously
-        saved reviews. Reload reviews if they are null.
-         */
         if (temp != null) {
             movieReviews.addAll(temp);
             adapter.notifyDataSetChanged();

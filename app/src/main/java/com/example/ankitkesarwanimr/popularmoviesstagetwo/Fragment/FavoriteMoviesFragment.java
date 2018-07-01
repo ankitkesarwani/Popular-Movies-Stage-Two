@@ -1,11 +1,13 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.AsyncTask;
 
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Database.MovieContract;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FavoriteMoviesFragment extends MoviesListFragment {
 
@@ -18,24 +20,28 @@ public class FavoriteMoviesFragment extends MoviesListFragment {
         new AsyncDbTask().execute();
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class AsyncDbTask extends AsyncTask<Void, Void, ArrayList<Movie>> {
         @Override
         protected ArrayList<Movie> doInBackground(Void... params) {
             ArrayList<Movie> movies = new ArrayList<>();
-            Cursor cursor = getContext().getContentResolver()
-                    .query(
-                            MovieContract.MovieEntry.CONTENT_URI,
-                            new String[]{
-                                    MovieContract.MovieColumns.MOVIE_ID,
-                                    MovieContract.MovieColumns.MOVIE_TITLE,
-                                    MovieContract.MovieColumns.MOVIE_RELEASE_DATE,
-                                    MovieContract.MovieColumns.MOVIE_DURATION,
-                                    MovieContract.MovieColumns.MOVIE_RATING,
-                                    MovieContract.MovieColumns.MOVIE_POSTER_PATH,
-                                    MovieContract.MovieColumns.MOVIE_BACKDROP_PATH
-                            },
-                            null, null, null
-                    );
+            Cursor cursor = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                cursor = Objects.requireNonNull(getContext()).getContentResolver()
+                        .query(
+                                MovieContract.MovieEntry.CONTENT_URI,
+                                new String[]{
+                                        MovieContract.MovieColumns.MOVIE_ID,
+                                        MovieContract.MovieColumns.MOVIE_TITLE,
+                                        MovieContract.MovieColumns.MOVIE_RELEASE_DATE,
+                                        MovieContract.MovieColumns.MOVIE_DURATION,
+                                        MovieContract.MovieColumns.MOVIE_RATING,
+                                        MovieContract.MovieColumns.MOVIE_POSTER_PATH,
+                                        MovieContract.MovieColumns.MOVIE_BACKDROP_PATH
+                                },
+                                null, null, null
+                        );
+            }
             if (cursor == null) {
                 return null;
             }
