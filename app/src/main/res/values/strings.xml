@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">PopularMovies</string>
+
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="loading">Loading&#8230;</string>
+    <string name="no_more">No more movies to load.</string>
+
+    <string name="error">Error</string>
+    <string name="network_error_movie_list">Please check if device is connected to the internet. Scroll down to refresh.</string>
+    <string name="network_error">Please check if device is connected to the internet.</string>
+    <string name="network_error_short">No internet</string>
+    <string name="server_error">Oops! Something is wrong at our end. Please try again later.</string>
+    <string name="server_error_short">Server error</string>
+
+    <string name="overview">Overview</string>
+    <string name="read_more">READ MORE</string>
+    <string name="read_all">READ ALL</string>
+    <string name="see_more">SEE MORE</string>
+
+    <string name="videos">Videos</string>
+    <string name="no_video">No video</string>
+
+    <string name="similar">Similar</string>
+    <string name="none_similar">None similar</string>
+    <string name="similar_to">Movies similar to</string>
+
+    <string name="reviews">Reviews</string>
+    <string name="no_review">No Review</string>
+    <string name="no_reviews">Users are yet to review this movie.</string>
+
+    <string name="authority">com.example.darsh</string>
+    <string name="no_favorites">No movies have been added to favorites.</string>
+    <string name="cursor_error">Error loading favorites. Please try again later.</string>
+
+    <string name="op_failed">Operation failed</string>
+    <string name="movie_added">Successfully added movie to favorites</string>
+    <string name="movie_removed">Successfully removed movie from favorites</string>
+
+    <string name="no_movie_selected">No movie selected</string>
+
+    <string name="cast">Cast</string>
+    <string name="director">Director</string>
+    <string name="unknown">Unknown</string>
+
+    <string name="share_movie">Share Movie</string>
+    <string name="share_via">Share via</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
