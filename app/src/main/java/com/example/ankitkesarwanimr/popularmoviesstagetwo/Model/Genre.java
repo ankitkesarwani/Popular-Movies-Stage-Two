@@ -6,6 +6,10 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Created by Ankit Kesarwani on 23/6/18.
+ */
+
 public class Genre implements Parcelable {
     @Expose
     @SerializedName("id")

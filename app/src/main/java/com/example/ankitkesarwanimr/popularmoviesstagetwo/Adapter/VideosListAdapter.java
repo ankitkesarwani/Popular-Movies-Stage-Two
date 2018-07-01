@@ -11,14 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.darsh.model.MovieVideo;
-import com.example.darsh.popularmovies.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideo;
 
 import java.util.ArrayList;
 
-/**
- * Created by darshan on 8/6/16.
- */
 public class VideosListAdapter extends RecyclerView.Adapter<VideosListAdapter.ViewHolder> {
     private ArrayList<MovieVideo> videos;
 

@@ -20,6 +20,7 @@ import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.Constants;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.StateHandler;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReview;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReviews;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Network.TmdbRestClient;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 import java.util.ArrayList;

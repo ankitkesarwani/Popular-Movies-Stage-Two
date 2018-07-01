@@ -1,21 +1,14 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Database.MovieContract;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
-import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
-
 import java.util.ArrayList;
 
 public class FavoriteMoviesFragment extends MoviesListFragment {
+
     public static final String TAG = FavoriteMoviesFragment.class.getName();
 
     public FavoriteMoviesFragment() {}
@@ -25,9 +18,6 @@ public class FavoriteMoviesFragment extends MoviesListFragment {
         new AsyncDbTask().execute();
     }
 
-    /**
-     * Load movies from favorites.
-     */
     private class AsyncDbTask extends AsyncTask<Void, Void, ArrayList<Movie>> {
         @Override
         protected ArrayList<Movie> doInBackground(Void... params) {

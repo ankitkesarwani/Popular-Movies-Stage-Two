@@ -14,10 +14,12 @@ import android.widget.TextView;
 
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.BackdropMovieImagesAdapter;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper.Constants;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Cast;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Credits;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Crew;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieImage;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieImages;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Network.TmdbRestClient;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.R;
 
 import java.util.ArrayList;

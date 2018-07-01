@@ -4,14 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.darsh.fragment.BackdropMovieImageFragment;
-import com.example.darsh.model.MovieImage;
+
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment.BackdropMovieImageFragment;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieImage;
 
 import java.util.ArrayList;
 
-/**
- * Created by darshan on 22/6/16.
- */
 public class BackdropMovieImagesAdapter extends FragmentStatePagerAdapter {
     private ArrayList<MovieImage> movieImages = new ArrayList<>();
 

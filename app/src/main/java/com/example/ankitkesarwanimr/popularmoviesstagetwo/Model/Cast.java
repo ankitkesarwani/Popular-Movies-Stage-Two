@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by darshan on 23/6/16.
+ * Created by Ankit Kesarwani on 23/6/18.
  */
 public class Cast {
     @Expose

@@ -7,14 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.darsh.model.MovieReview;
-import com.example.darsh.popularmovies.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReview;
 
 import java.util.ArrayList;
 
-/**
- * Created by darshan on 10/6/16.
- */
 public class MovieReviewsListAdapter extends RecyclerView.Adapter<MovieReviewsListAdapter.ViewHolder>{
     private Context context;
     private ArrayList<MovieReview> movieReviews;

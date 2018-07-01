@@ -6,15 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.darsh.fragment.MovieDetailFragment;
-import com.example.darsh.model.Genre;
-import com.example.darsh.popularmovies.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Fragment.MovieDetailFragment;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Genre;
 
 import java.util.ArrayList;
 
-/**
- * Created by darshan on 27/4/16.
- */
 public class GenresListAdapter extends RecyclerView.Adapter<GenresListAdapter.ViewHolder> {
     private ArrayList<Genre> genres;
     private OnGenreClickListener listener;

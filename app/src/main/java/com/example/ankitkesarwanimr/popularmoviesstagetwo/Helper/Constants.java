@@ -1,8 +1,6 @@
 package com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper;
 
-/**
- * Created by darshan on 18/4/16.
- */
+
 public class Constants {
     public static final boolean DEBUG = false;
 

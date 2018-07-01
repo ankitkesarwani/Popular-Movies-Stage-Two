@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 /**
- * Created by darshan on 9/6/16.
+ * Created by Ankit Kesarwani on 9/6/18.
  */
 public class MovieReviews {
     @Expose

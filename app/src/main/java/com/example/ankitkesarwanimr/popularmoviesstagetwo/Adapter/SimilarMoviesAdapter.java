@@ -10,15 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.darsh.model.Movie;
-import com.example.darsh.popularmovies.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
 
 import java.util.ArrayList;
 
-/**
- * Created by darshan on 21/6/16.
- */
 public class SimilarMoviesAdapter extends RecyclerView.Adapter<SimilarMoviesAdapter.ViewHolder> {
     private ArrayList<Movie> movies;
 

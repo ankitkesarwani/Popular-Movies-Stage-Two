@@ -2,23 +2,10 @@ package com.example.ankitkesarwanimr.popularmoviesstagetwo.Helper;
 
 import android.content.Context;
 
-import com.example.darsh.model.Movie;
-import com.example.darsh.model.MovieReview;
-import com.example.darsh.model.MovieVideo;
-import com.example.darsh.popularmovies.R;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.Movie;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieReview;
+import com.example.ankitkesarwanimr.popularmoviesstagetwo.Model.MovieVideo;
 
-/**
- * Created by darshan on 10/6/16.
- */
-
-/**
- * Helper class to deal with different error states
- * of the values for certain views to display. Returns
- * the required value for such variables depending on
- * the state. For instance, if there is a network error
- * intimate user to check if device is connected to the
- * Internet by setting the tagline text to the same.
- */
 public class StateHandler {
     public static String handleMovieDetailState(Context context, int flag) {
         String tagLine;
