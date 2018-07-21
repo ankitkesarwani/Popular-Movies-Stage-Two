@@ -6,6 +6,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.FragmentTabsAdapter;
 import com.example.ankitkesarwanimr.popularmoviesstagetwo.Adapter.MoviesListAdapter;
@@ -195,5 +197,44 @@ public class MainActivity extends AppCompatActivity implements MoviesListAdapter
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.manu_main, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        if(item.getItemId() == R.id.menu_main_popular) {
+
+            popularMoviesFragment = new PopularMoviesFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.view_pager, popularMoviesFragment)
+                    .commit();
+
+        }
+
+        if(item.getItemId() == R.id.menu_main_top_rated) {
+
+            topRatedMoviesFragment = new TopRatedMoviesFragment();
+
+        }
+
+        if(item.getItemId() == R.id.menu_main_favorites) {
+
+            favoriteMoviesFragment = new FavoriteMoviesFragment();
+
+        }
+
+        return true;
+
     }
 }
