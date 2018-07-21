@@ -3,17 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_main_popular"
-        android:title="Sort by Popular"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/menu_main_top_rated"
-        android:title="Sort by Top Rated"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/menu_main_favorites"
-        android:title="Sort by Favorites"
+        android:id="@+id/rate_us"
+        android:title="@string/rate_us"
         app:showAsAction="never"/>
 </menu>
