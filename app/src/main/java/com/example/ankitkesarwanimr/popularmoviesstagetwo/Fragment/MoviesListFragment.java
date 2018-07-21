@@ -120,7 +120,7 @@ public class MoviesListFragment extends Fragment {
             int orientation = getActivity().getResources()
                     .getConfiguration().orientation;
             if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                spanCount = 3;
+                spanCount = 4;
             }
         }
         return spanCount;

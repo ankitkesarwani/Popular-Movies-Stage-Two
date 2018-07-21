@@ -16,11 +16,11 @@
     <string name="server_error_short">Server error</string>
 
     <string name="overview">Overview</string>
-    <string name="read_more">READ MORE</string>
-    <string name="read_all">READ ALL</string>
+    <string name="read_more">Click to know more…</string>
+    <string name="read_all">Click to see all reviews…</string>
     <string name="see_more">SEE MORE</string>
 
-    <string name="videos">Videos</string>
+    <string name="videos">Related Videos</string>
     <string name="no_video">No video</string>
 
     <string name="similar">Similar</string>
