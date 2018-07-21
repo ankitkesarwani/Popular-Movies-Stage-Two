@@ -16,16 +16,16 @@ Features
 Screens
 ------
 <ul>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174921.jpg" height="25%" width="25%"/>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174931.jpg" height="25%" width="25%"/></br>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174936.jpg" height="25%" width="25%"/>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174959.jpg" height="25%" width="25%"/></br>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175012.jpg" height="25%" width="25%"/>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175022.jpg" height="25%" width="25%"/></br>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175033.jpg" height="25%" width="25%"/>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175040.jpg" height="25%" width="25%"/></br>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175054.jpg" height="25%" width="25%"/>
-  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175104.jpg" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174921.png" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174931.png" height="25%" width="25%"/></br>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174936.png" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-174959.png" height="25%" width="25%"/></br>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175012.png" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175022.png" height="25%" width="25%"/></br>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175033.png" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175040.png" height="25%" width="25%"/></br>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175054.png" height="25%" width="25%"/>
+  <img src="https://github.com/ankitkesarwani/Popular-Movies/blob/master/Screens/Screenshot_20180721-175104.png" height="25%" width="25%"/>
  </ul>
 
 Instructions
