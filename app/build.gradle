@@ -8,7 +8,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "TMDB_API_KEY", "\"dccf2cf6b308d712ca82981a3074a60e\""
+        buildConfigField "String", "TMDB_API_KEY", "\"YOUR_API_KEY\""
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
