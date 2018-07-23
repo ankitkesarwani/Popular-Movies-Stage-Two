@@ -38,6 +38,6 @@ Libraries
 
 This project uses the following libraries:
 
-[Glide](https://github.com/bumptech/glide)
-[CircleIndicator](https://github.com/ongakuer/CircleIndicator)
+[Glide](https://github.com/bumptech/glide)</br>
+[CircleIndicator](https://github.com/ongakuer/CircleIndicator)</br>
 [Retrofit](https://github.com/square/retrofit)
